@@ -19,6 +19,9 @@
 // Variables
 @import "base/variables";
 
+// Default styles
+@import "base/default";
+
 // Partials - メインのcssファイル
 @import "partials/*";
 @import "partials/layout/*";
