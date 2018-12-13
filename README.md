@@ -1,5 +1,10 @@
 # Rails Tutorial 2
 
+## Rails
+
+- Railsのビューはロジックを置かない。全てヘルパーにする
+- hoge_helperはHogeControllerに対応したビューだけに効くようにする
+
 ## Gem
 
 ```ruby
