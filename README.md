@@ -16,7 +16,7 @@ password { '123456' }
 `devise` を有効にしたい場合、 `factory_bot` を有効にしたい場合、以下を追加
 
 ```ruby
-  config.include Devise::Test::IntegrationHelpers, type: :feature
+  config.include Devise::Test::IntegrationHelpers, type: :system
   config.include FactoryBot::Syntax::Methods
 ```
 
