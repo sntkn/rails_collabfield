@@ -5,6 +5,33 @@
 - Railsのビューはロジックを置かない。全てヘルパーにする
 - hoge_helperはHogeControllerに対応したビューだけに効くようにする
 
+`factory_bot 4.11` から静的属性を使うと警告が出るので以下のように動的な属性を使う
+
+```ruby
+password '123456'
+# ↓
+password { '123456' }
+```
+
+`devise` を有効にしたい場合、 `factory_bot` を有効にしたい場合、以下を追加
+
+```ruby
+  config.include Devise::Test::IntegrationHelpers, type: :feature
+  config.include FactoryBot::Syntax::Methods
+```
+
+systemテストは `poltergeist` `headeless` `database_cleaner` などがいらない
+どのドライバを使うかを設定する必要がある。全体で設定する場合は `rails_helper.rb` で。
+
+```ruby
+RSpec.configure do |config|
+  config.before(:each, type: :system) do
+    driven_by :selenium_chrome_headless
+  end
+end
+```
+
+
 ## Gem
 
 ```ruby
