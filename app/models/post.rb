@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   belongs_to :category
   default_scope -> { includes(:user).order(created_at: :desc) }
   # https://techracho.bpsinc.jp/hachi8833/2017_10_31/47302
-  scope :by_category, lambda { |branch, _cateogry_name|
+  scope :by_category, lambda { |branch, category_name|
     joins(:category).where(categories: { name: category_name, branch: branch })
   }
 
