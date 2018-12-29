@@ -2,7 +2,10 @@ require 'rails_helper'
 
 RSpec.feature 'Visit single post', type: :system do
   let(:user) { create(:user) }
-  let(:post) { create(:post) }
+  let(:post) do
+    category = create(:category, branch: 'hobby')
+    create(:post, category_id: category.id)
+  end
 
   scenario 'User goes to a single post from the home page', js: true do
     post
