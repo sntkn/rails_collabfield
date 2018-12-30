@@ -5,6 +5,8 @@
 - Railsのビューはロジックを置かない。全てヘルパーにする
 - hoge_helperはHogeControllerに対応したビューだけに効くようにする
 
+### RSpec
+
 `factory_bot 4.11` から静的属性を使うと警告が出るので以下のように動的な属性を使う
 
 ```ruby
@@ -31,6 +33,10 @@ RSpec.configure do |config|
 end
 ```
 
+Rails 5 以降は `controller` テストの代わりに `requests` テストを推奨
+`assigns` や `assert_template` を使うとエラーになる
+回避方法は `gem 'rails-controller-testing'` を追加（ただし基本使わない方が良い）
+For more information, see <https://qiita.com/t2kojima/items/ad7a8ade9e7a99fb4384>
 
 ## Gem
 
